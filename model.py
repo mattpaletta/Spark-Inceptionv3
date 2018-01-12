@@ -32,7 +32,7 @@ num_top_predictions = 5
 
 def maybe_download_and_extract():
     """Download and extract model tar file."""
-    from six.moves import urllib
+    import urllib
     dest_directory = model_dir
     if not os.path.exists(dest_directory):
         os.makedirs(dest_directory)
