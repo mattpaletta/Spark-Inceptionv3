@@ -134,8 +134,7 @@ def run(cmd):
 def read_file_index():
 
   if not os.path.exists("/tmp/imagenet.txt"):
-
-    from six.moves import urllib
+    import urllib
     content = urllib.request.urlopen(IMAGES_INDEX_URL)
 
     #data = content.read(images_read_limit)
@@ -173,8 +172,7 @@ def run_inference_on_image(sess, img_id, img_url, node_lookup):
         (image ID, image URL, scores),
         where scores is a list of (human-readable node names, score) pairs
       """
-    from six.moves import urllib
-    from urllib2 import HTTPError
+    import urllib
     try:
         image_data = urllib.request.urlopen(img_url, timeout=1.0).read()
     except:
