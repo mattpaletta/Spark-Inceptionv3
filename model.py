@@ -32,7 +32,8 @@ num_top_predictions = 5
 
 def maybe_download_and_extract():
     """Download and extract model tar file."""
-    import urllib
+    from six.moves import urllib
+
     dest_directory = model_dir
     if not os.path.exists(dest_directory):
         os.makedirs(dest_directory)
@@ -134,7 +135,8 @@ def run(cmd):
 def read_file_index():
 
   if not os.path.exists("/tmp/imagenet.txt"):
-    import urllib
+
+    from six.moves import urllib
     content = urllib.request.urlopen(IMAGES_INDEX_URL)
 
     #data = content.read(images_read_limit)
@@ -172,7 +174,7 @@ def run_inference_on_image(sess, img_id, img_url, node_lookup):
         (image ID, image URL, scores),
         where scores is a list of (human-readable node names, score) pairs
       """
-    import urllib
+    from six.moves import urllib
     try:
         image_data = urllib.request.urlopen(img_url, timeout=1.0).read()
     except:
